@@ -1,9 +1,7 @@
-from app import db
+from db import db
 
 
 class Link(db.Model):
-    link_id = db.Column(db.Integer, primery_key=True, auto_increment=True, unique=True)
-    entered_link = db.Column(db.String(2048), unique=True)
-    generated_short_link = db.Column(db.Dtring(50), unique=True)
-
-
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    entered_link = db.Column(db.String(2048))
+    generated_hash = db.Column(db.String(50))
