@@ -1,16 +1,18 @@
-from flask_restful import Resource, abort, reqparse
-from .service import save_new_link, db
-from flask import request, json
+from flask_restful import Resource
+from .service import short_link, link_redirection
+from flask import request
 
 
-class ShortLink(Resource):
-    def get(self):
-        return {(self.__class__.__name__): 'lol'}
-
+class LinkShort(Resource):
     def put(self):
         user_data = request.get_json(force=True)
         user_link = user_data['Link']
         print(user_link)
-        print(type(user_data['Link']))
-        short_link = save_new_link(user_link)
-        return short_link
+        new_link = short_link(user_link)
+        return new_link
+
+
+class LinkRedirection(Resource):
+    def get(self, short_hash):
+        print(link_redirection(short_hash))
+        return link_redirection(short_hash)

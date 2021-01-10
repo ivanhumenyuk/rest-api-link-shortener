@@ -1,5 +1,5 @@
 from app import manager
-from resources.link.models import Link
+from resources.link.models import *
 
 
 if __name__ == '__main__':

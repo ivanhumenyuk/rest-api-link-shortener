@@ -1,4 +1,5 @@
 import random
+from datetime import datetime
 
 
 def hash_prettier(_hash: str):
@@ -23,6 +24,8 @@ def hash_prettier(_hash: str):
     return pretty_hash_string
 
 
+def current_date():
+    return datetime.now().date()
 
 
 
