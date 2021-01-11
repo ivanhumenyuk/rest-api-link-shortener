@@ -27,5 +27,3 @@ def hash_prettier(_hash: str):
 def current_date():
     return datetime.now().date()
 
-
-
