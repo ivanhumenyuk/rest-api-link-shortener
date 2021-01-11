@@ -10,7 +10,6 @@ app = Flask(__name__)
 app.config.from_object(Config)
 
 api = Api(app)
-api.add_resource(LinkShort, '/')
 api.add_resource(LinkRedirection, '/<short_hash>')
 
 from db import db

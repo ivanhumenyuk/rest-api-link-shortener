@@ -6,7 +6,7 @@ from flask import request
 class LinkShort(Resource):
     def put(self):
         user_data = request.get_json(force=True)
-        user_link = user_data['Link']
+        user_link = user_data['link']
         new_link = short_link(user_link)
         return new_link
 
