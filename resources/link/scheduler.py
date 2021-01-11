@@ -1,23 +1,21 @@
-import atexit
 from .models import Link, db
-from utils import current_date
 from apscheduler.schedulers.background import BackgroundScheduler
 from app import app
+import atexit
+from sqlalchemy import func
 
 
-def print_date_time():
+def delete_inactive_link():
     with app.app_context():
-        timedelta = current_date() - Link.generated_day
         delete_query = Link.__table__.delete()\
-            .where(timedelta >= Link.hash_lifetime)
+            .where(Link.hash_lifetime == func.datediff(func.now(), Link.generated_day))
         db.session.execute(delete_query)
         db.session.commit()
         print('scheduler works')
-    # timedelta = current_date() - Link.generated_day
 
 
 scheduler = BackgroundScheduler()
-scheduler.add_job(func=print_date_time, trigger="interval", days=1)
+scheduler.add_job(func=delete_inactive_link, trigger="interval", days=1)
 
 # Shut down the scheduler when exiting the app
 atexit.register(lambda: scheduler.shutdown())

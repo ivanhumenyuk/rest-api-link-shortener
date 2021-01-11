@@ -7,12 +7,10 @@ class LinkShort(Resource):
     def put(self):
         user_data = request.get_json(force=True)
         user_link = user_data['Link']
-        print(user_link)
         new_link = short_link(user_link)
         return new_link
 
 
 class LinkRedirection(Resource):
     def get(self, short_hash):
-        print(link_redirection(short_hash))
         return link_redirection(short_hash)

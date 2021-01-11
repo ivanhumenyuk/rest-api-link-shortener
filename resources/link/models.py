@@ -10,12 +10,12 @@ class Link(db.Model):
     hash_lifetime = db.Column(db.Integer(), default=90, nullable=False)
 
 
-def delete_inactive_event():
-    # schedule_planner_var = 'SET GLOBAL event_scheduler = On;'
-    delete_old_link_query = f"""CREATE EVENT IF NOT EXIST`delete_inactive` 
-                            ON SCHEDULE 
-                            EVERY 1 DAY DO DELETE FROM `link` 
-                            WHERE SELECT DATEDIFF({current_date()}, `link.generated_day`) >= 
-                            `link.generated_hash_lifetime`"""
-    # db.engine.execute(schedule_planner_var)
-    db.engine.execute(delete_old_link_query)
+# def delete_inactive_event():
+#     # schedule_planner_var = 'SET GLOBAL event_scheduler = On;'
+#     delete_old_link_query = f"""CREATE EVENT IF NOT EXIST`delete_inactive`
+#                             ON SCHEDULE
+#                             EVERY 1 DAY DO DELETE FROM `link`
+#                             WHERE SELECT DATEDIFF({current_date()}, `link.generated_day`) >=
+#                             `link.generated_hash_lifetime`"""
+#     # db.engine.execute(schedule_planner_var)
+#     db.engine.execute(delete_old_link_query)

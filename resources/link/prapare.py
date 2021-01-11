@@ -3,14 +3,12 @@ from .models import Link, db
 from utils import hash_prettier
 
 
-def destroy_collision(hash_string: str, x=0, y=7):
+def destroy_collision(hash_string: str, x=0, y=7) -> str:
     short_hash = hash_string[x: y]
-    print(short_hash)
     pretty_hash_string = hash_prettier(short_hash)
     db_instance = find_hash_in_database(pretty_hash_string)
     if not db_instance:
         return pretty_hash_string
-
     else:
         destroy_collision(hash_string, x + 1, y + 1)
 
@@ -26,7 +24,7 @@ def create_hash(long_link: str) -> str:
     return generated_hash
 
 
-def save_hash(long_link, short_hash) -> None:
+def save_hash(long_link, short_hash):
     new_link = Link(entered_link=long_link, generated_hash=short_hash)
     db.session.add(new_link)
     db.session.commit()

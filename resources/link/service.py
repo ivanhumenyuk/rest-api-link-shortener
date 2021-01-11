@@ -2,6 +2,7 @@ from .models import Link
 from .prapare import find_hash_in_database, create_hash, save_hash
 from flask_restful import abort
 import webbrowser
+from datetime import datetime
 
 
 def short_link(entered_link: str) -> tuple:
@@ -10,7 +11,6 @@ def short_link(entered_link: str) -> tuple:
     in current_app string variable
     example: current_app = 'https://bigtech-company.com/'
     """
-
     current_app = 'http://localhost:5000/'
     link = Link.query.filter_by(entered_link=entered_link).first()
     if not link:
