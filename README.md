@@ -17,7 +17,7 @@ python manage.py runserver
 ```
 ## REST Api
 ### Shorten link
-- ####Request
+- __*Request*__<br/>
    - method: `PUT`
    - endpoint: `/shorten`
    - content-type: `application/json`
@@ -31,7 +31,7 @@ Example:
 }
 ```
 
-- ####Success Response
+- __*Success Response*__<br/>
 Code: `201` `OK` <br/>
 
 Example: <br/>
@@ -42,7 +42,7 @@ Example: <br/>
 }
 ```
 
-- ####Error Response
+- __*Error Response*__<br/>
 Code: `400` `Bad Request` <br/>
 
 Example:
@@ -57,13 +57,13 @@ Example:
 }
 ```
 
-
-- ####Redirection
-   - #####Success Redirection
+###Redirection
+   - __*Success Redirection*__<br/>
    Redirection to resource(long url that has been shortened) will automatically, if user put short api link 
 to browser and press `Enter`.
-   - #####Error Redirection 
+   - __*Error Redirection*__<br/>
    If current short link is not allowed, user will see error message in his browser<br/>
+   
    Example:
 ```
 {
