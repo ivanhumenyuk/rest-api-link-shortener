@@ -57,7 +57,7 @@ Example:
 }
 ```
 
-###Redirection
+### Redirection
    - __*Success Redirection*__<br/>
    Redirection to resource(long url that has been shortened) will automatically, if user put short api link 
 to browser and press `Enter`.
