@@ -24,7 +24,7 @@ def create_hash(long_link: str) -> str:
     return generated_hash
 
 
-def save_hash(long_link, short_hash):
-    new_link = Link(entered_link=long_link, generated_hash=short_hash)
+def save_hash(long_link, short_hash, lifetime: int):
+    new_link = Link(entered_link=long_link, generated_hash=short_hash, hash_lifetime=lifetime)
     db.session.add(new_link)
     db.session.commit()

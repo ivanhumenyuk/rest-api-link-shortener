@@ -32,7 +32,8 @@ Example:
 ```
 
 - ####Success Response
-Code 201 OK <br/>
+Code: `201` `OK` <br/>
+
 Example: <br/>
 ```
 {
@@ -42,6 +43,31 @@ Example: <br/>
 ```
 
 - ####Error Response
+Code: `400` `Bad Request` <br/>
+
+Example:
+```
+{
+    "lifetime": [
+        "must be of integer type"
+    ],
+    "link": [
+        "null value not allowed"
+    ]
+}
+```
 
 
 - ####Redirection
+   - #####Success Redirection
+   Redirection to resource(long url that has been shortened) will automatically, if user put short api link 
+to browser and press `Enter`.
+   - #####Error Redirection 
+   If current short link is not allowed, user will see error message in his browser<br/>
+   Example:
+```
+{
+    "message": "The browser (or proxy) sent a request that this server could not understand."
+}
+  ```
+   
