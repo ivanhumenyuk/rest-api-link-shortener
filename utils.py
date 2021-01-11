@@ -3,6 +3,12 @@ from datetime import datetime
 
 
 def hash_prettier(_hash: str):
+    """
+    Function, that helps to dilute boring hash string,
+    replacing integers some pretty random alphabet
+    upper and lower cases symbols and vice versa.
+    :param _hash: Variable of generated hash
+    """
     hash_string = _hash.replace('0', '1')
     pretty_hash_string = ''
 

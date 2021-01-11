@@ -1,9 +1,16 @@
-import hashlib
 from .models import Link, db
 from utils import hash_prettier
 
 
 def destroy_collision(hash_string: str, x=0, y=7) -> str:
+    """
+    Function that destroy destroy hash collision and repeating in database.
+    :param hash_string: long hash string of entered link
+    :param x: start of string slice
+    :type x: int
+    :param y:stop of string slice
+    :type y:int
+    """
     short_hash = hash_string[x: y]
     pretty_hash_string = hash_prettier(short_hash)
     db_instance = find_hash_in_database(pretty_hash_string)
@@ -14,14 +21,10 @@ def destroy_collision(hash_string: str, x=0, y=7) -> str:
 
 
 def find_hash_in_database(string: str) -> Link:
+    """
+    Function that find generated_hash in database
+    """
     return Link.query.filter_by(generated_hash=string).first()
-
-
-def create_hash(long_link: str) -> str:
-    hash_object = hashlib.md5(long_link.encode('utf-8'))
-    hash_string = hash_object.hexdigest()
-    generated_hash = destroy_collision(hash_string)
-    return generated_hash
 
 
 def save_hash(long_link, short_hash, lifetime: int):
