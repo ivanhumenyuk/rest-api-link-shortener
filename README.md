@@ -5,7 +5,7 @@ Clone this repository to your local repository:<br/>
 ```
 git clone https://github.com/ivanhumenyuk/rest-api-link-shortener
 ```
-First of all you have ro install all dependencies.
+First of all you have to install all dependencies.
 Just write in your console:
 ```
 pip install requirements.txt
