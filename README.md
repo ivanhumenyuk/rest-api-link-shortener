@@ -1,6 +1,6 @@
 # Link Shortener
 Project that shortens links and redirects from short links to a resource.
-## Instolation
+## Instollation
 Clone this repository to your local repository:<br/> 
 ```
 git clone https://github.com/ivanhumenyuk/rest-api-link-shortener
